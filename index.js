@@ -4,7 +4,7 @@ const BASE_URL = "https://hometown-tracker-back.onrender.com";
 
 loginForm.addEventListener('submit', async (e) => {
   e.preventDefault();
-  const email = document.getElementById('login-email').value;
+  const email = document.getElementById('login-email').value.toLowerCase();
   const password = document.getElementById('login-password').value;
   const res = await fetch('https://hometown-tracker-back.onrender.com/login', {
     method: 'POST',
@@ -24,9 +24,9 @@ loginForm.addEventListener('submit', async (e) => {
 registerForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   const name = document.getElementById('register-name').value;
-  const email = document.getElementById('register-email').value;
+  const email = document.getElementById('register-email').value.toLowerCase();
   const password = document.getElementById('register-password').value;
-  const groupCode = document.getElementById('register-group').value;
+  const groupCode = document.getElementById('register-group').value.toLowerCase();
 
   const res = await fetch('https://hometown-tracker-back.onrender.com/register', {
     method: 'POST',
