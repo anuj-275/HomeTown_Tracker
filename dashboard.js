@@ -17,7 +17,7 @@ async function updateStatus() {
   const status = document.getElementById('status').value;
   const city = status === 'OUT_OF_TOWN' ? document.getElementById('city').value : 'Gaya';
 
-  const res = await fetch(`http://localhost:8080/status/${user.id}`, {
+  const res = await fetch(`https://hometown-tracker-back.onrender.com/status/${user.id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ status, city })
