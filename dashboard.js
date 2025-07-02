@@ -15,22 +15,21 @@ window.onload = () => {
 async function updateStatus() {
   const user = JSON.parse(localStorage.getItem('user'));
   const status = document.getElementById('status').value;
+  const city = status === 'OUT_OF_TOWN' ? document.getElementById('city').value : 'Gaya';
 
-  try {
-    const res = await fetch(`https://hometown-tracker-back.onrender.com/status/${user.id}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ status })
-    });
-    if (!res.ok) throw new Error('Failed to update status.');
-    const updatedUser = await res.json();
-    localStorage.setItem('user', JSON.stringify(updatedUser));
-    loadSummary();
-    loadUsers();
-  } catch (err) {
-    alert(err.message || 'Status update failed!');
-  }
+  const res = await fetch(`http://localhost:8080/status/${user.id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ status, city })
+  });
+
+  const updatedUser = await res.json();
+  localStorage.setItem('user', JSON.stringify(updatedUser));
+
+  loadSummary();
+  loadUsers();
 }
+
 
 async function loadSummary() {
   const user = JSON.parse(localStorage.getItem('user'));
@@ -49,20 +48,24 @@ async function loadSummary() {
 }
 async function loadUsers() {
   const user = JSON.parse(localStorage.getItem('user'));
+
   try {
     const res = await fetch('https://hometown-tracker-back.onrender.com/users');
     if (!res.ok) throw new Error('Failed to load users.');
+
     const users = await res.json();
 
+    // Filter only users from the same group
     const groupUsers = users.filter(u => u.groupCode === user.groupCode);
 
+    // Prepare names with IDs and city (if applicable)
     const inHometown = groupUsers
       .filter(u => u.status === 'IN_HOMETOWN')
-      .map(u => `${u.name} (${u.id})`);
+      .map(u => `${u.name} (ID: ${u.id})`);
 
     const outOfTown = groupUsers
       .filter(u => u.status === 'OUT_OF_TOWN')
-      .map(u => `${u.name} (${u.id})`);
+      .map(u => `${u.name} (${u.city || 'Unknown'}) [ID: ${u.id}]`);
 
     const maxLength = Math.max(inHometown.length, outOfTown.length);
 
@@ -82,6 +85,11 @@ async function loadUsers() {
   }
 }
 
+
+function toggleCityInput() {
+  const status = document.getElementById('status').value;
+  document.getElementById('city-input').style.display = status === 'OUT_OF_TOWN' ? 'block' : 'none';
+}
 
 function logout() {
   localStorage.removeItem('user');
