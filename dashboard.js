@@ -58,14 +58,29 @@ async function loadUsers() {
     // Filter only users from the same group
     const groupUsers = users.filter(u => u.groupCode === user.groupCode);
 
-    // Prepare names with IDs and city (if applicable)
-    const inHometown = groupUsers
-      .filter(u => u.status === 'IN_HOMETOWN')
-      .map(u => `${u.name}`);
+    // Count name occurrences
+    const nameCount = {};
+    groupUsers.forEach(u => {
+      nameCount[u.name] = (nameCount[u.name] || 0) + 1;
+    });
 
-    const outOfTown = groupUsers
+    // Sort OUT_OF_TOWN users by city name
+    const outOfTownUsers = groupUsers
       .filter(u => u.status === 'OUT_OF_TOWN')
-      .map(u => `${u.name} (${u.city || 'Unknown'})`);
+      .sort((a, b) => (a.city || '').localeCompare(b.city || ''));
+
+    const inHometownUsers = groupUsers
+      .filter(u => u.status === 'IN_HOMETOWN');
+
+    const outOfTown = outOfTownUsers.map(u => {
+      const displayName = nameCount[u.name] > 1 ? `${u.name} (${u.id})` : u.name;
+      return `${displayName} (${u.city || 'Unknown'})`;
+    });
+
+    const inHometown = inHometownUsers.map(u => {
+      const displayName = nameCount[u.name] > 1 ? `${u.name} (${u.id})` : u.name;
+      return displayName;
+    });
 
     const maxLength = Math.max(inHometown.length, outOfTown.length);
 
