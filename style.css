@@ -1,31 +1,34 @@
+/* General Reset & Background */
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
-  background: linear-gradient(145deg, #edf2f7 0%, #e2e8f0 100%);
-
+  background: linear-gradient(145deg, #0f172a, #1e293b);
+  color: #f1f5f9;
   min-height: 100vh;
   margin: 0;
   padding: 0;
 }
 
+/* Container Styling */
 .container {
   width: 92%;
   max-width: 600px;
   margin: 3rem auto;
   padding: 2.5rem 2rem;
-  background: #fff;
+  background: #1e293b;
   border-radius: 22px;
-  box-shadow: 0 10px 24px 0 rgba(60, 72, 88, 0.16), 0 1.5px 8px 0 rgba(60, 72, 88, 0.08);
-  transition: box-shadow 0.3s;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
   position: relative;
   z-index: 1;
   animation: fadeIn 0.7s;
 }
 
+/* Fade Animation */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px);}
-  to { opacity: 1; transform: none;}
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: none; }
 }
 
+/* Header */
 .header-flex {
   display: flex;
   justify-content: space-between;
@@ -34,15 +37,15 @@ body {
 }
 
 h1 {
-  color: #2563eb;
+  color: #38bdf8;
   font-weight: 700;
   margin: 0;
   font-size: 2rem;
-  letter-spacing: 1px;
 }
 
+/* Logout Button */
 .logout-btn {
-  background: linear-gradient(90deg, #ef4444, #f97316);
+  background: linear-gradient(90deg, #f43f5e, #f97316);
   border: none;
   border-radius: 12px;
   color: white;
@@ -50,26 +53,26 @@ h1 {
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
-  box-shadow: 0 6px 12px rgba(239, 68, 68, 0.25);
   transition: background 0.3s, transform 0.2s;
 }
 
 .logout-btn:hover {
-  background: linear-gradient(90deg, #f97316, #ef4444);
+  background: linear-gradient(90deg, #f97316, #f43f5e);
   transform: translateY(-2px) scale(1.04);
 }
 
+/* Status Section */
 .status-section {
-  background: #f7faff;
+  background: #334155;
   border-radius: 14px;
   padding: 1.2rem 1rem;
-  box-shadow: 0 2px 12px rgba(60, 72, 88, 0.06);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
   margin-bottom: 2rem;
 }
 
 .status-section label {
   font-weight: 600;
-  color: #444;
+  color: #e2e8f0;
   margin-bottom: 0.5rem;
   display: block;
 }
@@ -84,62 +87,72 @@ h1 {
 .status-section select {
   padding: 0.7rem 1rem;
   border-radius: 8px;
-  border: 1.5px solid #bfc6d1;
-  background: #f7faff;
+  border: 1.5px solid #64748b;
+  background: #1e293b;
+  color: #f1f5f9;
   font-size: 1rem;
-  box-shadow: 0 2px 6px rgba(60, 72, 88, 0.04);
-  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .status-section select:focus {
-  border-color: #3b82f6;
+  border-color: #38bdf8;
   outline: none;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.10);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.3);
 }
 
+/* Update Button */
 .update-btn {
-  background: linear-gradient(90deg, #06beb6 0%, #48b1f3 100%);
+  background: linear-gradient(90deg, #06beb6, #3b82f6);
   color: #fff;
   border: none;
   border-radius: 8px;
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   padding: 0.7rem 0;
-  box-shadow: 0 4px 16px rgba(6, 190, 182, 0.15);
-  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  transition: all 0.3s ease;
 }
 
 .update-btn:hover {
-  background: linear-gradient(90deg, #48b1f3 0%, #06beb6 100%);
+  background: linear-gradient(90deg, #3b82f6, #06beb6);
   transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 8px 24px rgba(6, 190, 182, 0.22);
 }
 
+/* City Field */
+.city-field {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.city-input {
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #64748b;
+  border-radius: 6px;
+  background: #1e293b;
+  color: #f8fafc;
+}
+
+/* Summary Section */
 .summary {
-  background: linear-gradient(120deg, #e0f7fa 60%, #f0f9ff 100%);
+  background: linear-gradient(120deg, #0f172a, #1e293b);
   border-radius: 18px;
   padding: 1.5rem 1.2rem;
-  box-shadow: 0 8px 16px rgba(0, 123, 255, 0.15), 0 1px 4px rgba(0,0,0,0.06);
+  box-shadow: 0 8px 16px rgba(0, 123, 255, 0.15);
   margin-bottom: 2rem;
-  font-weight: 600;
-  color: #0369a1;
-  letter-spacing: 0.03em;
+  color: #f1f5f9;
 }
 
 .summary h3 {
   margin-top: 0;
   margin-bottom: 1.2rem;
-  color: #2563eb;
+  color: #38bdf8;
   font-size: 1.2rem;
   font-weight: 700;
-  letter-spacing: 1px;
 }
 
 .summary-row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin-bottom: 0.7rem;
 }
 
@@ -148,101 +161,69 @@ h1 {
 }
 
 .in-hometown {
-  color: #059669;
+  color: #22c55e;
 }
 
 .out-town {
-  color: #f59e42;
+  color: #f59e0b;
 }
 
 .summary-value {
   font-size: 1.1rem;
   font-weight: 700;
-  margin-left: 1rem;
 }
 
+/* Table Section */
 .table-section {
-  background: #f7faff;
+  background: #334155;
   border-radius: 14px;
   padding: 1.2rem 1rem;
-  box-shadow: 0 2px 12px rgba(60, 72, 88, 0.06);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
 }
 
 .table-section h3 {
   margin-top: 0;
-  color: #2563eb;
+  color: #38bdf8;
   font-size: 1.1rem;
   font-weight: 700;
 }
 
 table {
   width: 100%;
+  margin-top: 1rem;
   border-collapse: separate;
   border-spacing: 0;
-  margin-top: 1rem;
-  background: #f7faff;
+  background: #1e293b;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 16px rgba(60, 72, 88, 0.10);
 }
 
 th, td {
-  padding: 0.75rem 0.5rem;
-  border-bottom: 1.5px solid #e3e8f0;
+  padding: 0.75rem;
+  border-bottom: 1px solid #475569;
   text-align: center;
   font-size: 1rem;
 }
 
 th {
-  background: linear-gradient(90deg, #06beb6 0%, #48b1f3 100%);
+  background: linear-gradient(90deg, #06beb6, #3b82f6);
   color: #fff;
   font-weight: 700;
-  box-shadow: 0 2px 6px rgba(6, 190, 182, 0.08);
 }
 
 tr:last-child td {
   border-bottom: none;
 }
 
+/* Responsive Design */
 @media (max-width: 700px) {
   .container {
     padding: 1.2rem 0.5rem;
     max-width: 98vw;
   }
+
   th, td {
     font-size: 0.95rem;
-    padding: 0.5rem 0.2rem;
+    padding: 0.5rem;
   }
-}
-
-/* Style for the city input container */
-.city-field {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-/* Style for the city input box */
-.city-input {
-  padding: 8px;
-  width: 200px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-}
-
-/* Style for the update button */
-.update-btn {
-  margin-top: 10px;
-  padding: 10px 16px;
-  background-color: #007bff; /* Bootstrap blue */
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.update-btn:hover {
-  background-color: #0056b3;
 }
