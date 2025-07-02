@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome, <span id="user-name"></span> (ID: <span id="user-id"></span>)</h1>
+    <button onclick="logout()" class="logout-btn">Logout</button>
+
+
+    
+    <div class="status-section">
+      <label for="status">Update Location Status:</label>
+      <select id="status">
+        <option value="IN_HOMETOWN">In Hometown</option>
+        <option value="OUT_OF_TOWN">Out of Town</option>
+      </select>
+      <button onclick="updateStatus()">Update</button>
+    </div>
+
+    <div class="summary">
+      <h3>Summary</h3>
+      <p>In Hometown: <span id="in-hometown-count">0</span></p>
+      <p>Out of Town: <span id="out-town-count">0</span></p>
+    </div>
+
+    <div class="table-section">
+      <h3>Users Status</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Out of Town</th>
+            <th>In Hometown</th>
+          </tr>
+        </thead>
+        <tbody id="users-table">
+          <!-- Filled by JS -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script src="dashboard.js"></script>
+</body>
+</html>
