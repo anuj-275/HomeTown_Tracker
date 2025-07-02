@@ -61,11 +61,11 @@ async function loadUsers() {
     // Prepare names with IDs and city (if applicable)
     const inHometown = groupUsers
       .filter(u => u.status === 'IN_HOMETOWN')
-      .map(u => `${u.name} (ID: ${u.id})`);
+      .map(u => `${u.name}`);
 
     const outOfTown = groupUsers
       .filter(u => u.status === 'OUT_OF_TOWN')
-      .map(u => `${u.name} (${u.city || 'Unknown'}) [ID: ${u.id}]`);
+      .map(u => `${u.name} (${u.city || 'Unknown'})`);
 
     const maxLength = Math.max(inHometown.length, outOfTown.length);
 
