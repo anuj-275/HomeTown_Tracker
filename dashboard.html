@@ -8,10 +8,10 @@
 </head>
 <body>
   <div class="container">
-    <h1>Welcome, <span id="user-name"></span> (ID: <span id="user-id"></span>)</h1>
-    <button onclick="logout()" class="logout-btn">Logout</button>
-
-
+    <header class="header-flex">
+      <h1>Welcome, <span id="user-name"></span></h1>
+      <button onclick="logout()" class="logout-btn">Logout</button>
+    </header>
     
     <div class="status-section">
       <label for="status">Update Location Status:</label>
@@ -19,13 +19,19 @@
         <option value="IN_HOMETOWN">In Hometown</option>
         <option value="OUT_OF_TOWN">Out of Town</option>
       </select>
-      <button onclick="updateStatus()">Update</button>
+      <button onclick="updateStatus()" class="update-btn">Update</button>
     </div>
 
     <div class="summary">
       <h3>Summary</h3>
-      <p>In Hometown: <span id="in-hometown-count">0</span></p>
-      <p>Out of Town: <span id="out-town-count">0</span></p>
+      <div class="summary-row">
+        <span class="summary-label in-hometown">In Hometown:</span>
+        <span id="in-hometown-count" class="summary-value">0</span>
+      </div>
+      <div class="summary-row">
+        <span class="summary-label out-town">Out of Town:</span>
+        <span id="out-town-count" class="summary-value">0</span>
+      </div>
     </div>
 
     <div class="table-section">
