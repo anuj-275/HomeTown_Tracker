@@ -4,119 +4,122 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hometown Tracker - Login/Register</title>
- <style>
-  body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-background: linear-gradient(135deg, #1e1e1e, #2c2c2c);
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #121212, #1f1f1f); /* Deep dark gray gradient */
+      color: #e0e0e0; /* Light gray text */
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-.container {
-  width: 92%;
-  max-width: 600px;
-  margin: 3rem auto;
-  padding: 2.5rem 2rem;
-  background: #1e1e1e; /* Dark gray background */
-  border-radius: 22px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4), 0 1.5px 8px rgba(0, 0, 0, 0.3);
-  transition: box-shadow 0.3s;
-  position: relative;
-  z-index: 1;
-  animation: fadeIn 0.7s;
-  box-sizing: border-box;
-  color: #f1f5f9; /* Light text color */
-}
+    .container {
+      width: 92%;
+      max-width: 600px;
+      margin: 3rem auto;
+      padding: 2.5rem 2rem;
+      background: #1a1a1a; /* Dark background */
+      border-radius: 22px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5), 0 1.5px 8px rgba(0, 0, 0, 0.4);
+      transition: box-shadow 0.3s;
+      animation: fadeIn 0.7s;
+      box-sizing: border-box;
+    }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px);}
-  to { opacity: 1; transform: none;}
-}
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: none;}
+    }
 
-h1 {
-  color: #2563eb;
-  font-weight: 700;
-  margin: 0 0 2rem 0;
-  font-size: 2rem;
-  letter-spacing: 1px;
-  text-align: center;
-}
+    h1 {
+      color: #60a5fa; /* Light blue */
+      font-weight: 700;
+      margin: 0 0 2rem 0;
+      font-size: 2rem;
+      letter-spacing: 1px;
+      text-align: center;
+    }
 
-form {
-  margin-bottom: 1.5rem;
-  background: #f7faff;
-  border-radius: 14px;
-  padding: 1.2rem 1rem 0.5rem 1rem;
-  box-shadow: 0 2px 12px rgba(60, 72, 88, 0.06);
-  display: flex;
-  flex-direction: column;
-}
+    form {
+      margin-bottom: 1.5rem;
+      background: #222; /* Darker form background */
+      border-radius: 14px;
+      padding: 1.2rem 1rem 0.5rem 1rem;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+    }
 
-form h2 {
-  text-align: center;
-  color: #2563eb;
-  margin-bottom: 1rem;
-  font-size: 1.15rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
+    form h2 {
+      text-align: center;
+      color: #93c5fd; /* Soft blue */
+      margin-bottom: 1rem;
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
 
-input, select {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  margin: 0.5rem 0 1rem 0;
-  border: 1.5px solid #bfc6d1;
-  border-radius: 8px;
-  font-size: 1rem;
-  background: #f7faff;
-  box-shadow: 0 2px 6px rgba(60,72,88,0.04);
-  transition: border-color 0.2s, box-shadow 0.2s;
-  box-sizing: border-box;
-}
+    input, select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      margin: 0.5rem 0 1rem 0;
+      border: 1.5px solid #444;
+      border-radius: 8px;
+      font-size: 1rem;
+      background: #2c2c2c;
+      color: #f1f1f1;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      box-sizing: border-box;
+    }
 
-input:focus, select:focus {
-  border-color: #3b82f6;
-  outline: none;
-  box-shadow: 0 4px 12px rgba(59,130,246,0.10);
-}
+    input::placeholder {
+      color: #999;
+    }
 
-button {
-  width: 100%;
-  padding: 0.8rem 1.5rem;
-  background: linear-gradient(90deg, #06beb6 0%, #48b1f3 100%);
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  font-size: 1.08rem;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 4px 16px rgba(6,190,182,0.12);
-  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-  margin-bottom: 0.7rem;
-  letter-spacing: 0.5px;
-}
+    input:focus, select:focus {
+      border-color: #60a5fa;
+      outline: none;
+      box-shadow: 0 4px 12px rgba(96, 165, 250, 0.2);
+    }
 
-button:hover {
-  background: linear-gradient(90deg, #48b1f3 0%, #06beb6 100%);
-  transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 8px 24px rgba(6,190,182,0.18);
-}
+    button {
+      width: 100%;
+      padding: 0.8rem 1.5rem;
+      background: linear-gradient(90deg, #3b82f6 0%, #06b6d4 100%);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.08rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(6, 190, 182, 0.15);
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      margin-bottom: 0.7rem;
+      letter-spacing: 0.5px;
+    }
 
-@media (max-width: 700px) {
-  .container {
-    padding: 1.2rem 0.5rem;
-    max-width: 98vw;
-  }
-  input, button {
-    font-size: 0.98rem;
-    padding: 0.65rem 0.7rem;
-  }
-}
- </style>
+    button:hover {
+      background: linear-gradient(90deg, #06b6d4 0%, #3b82f6 100%);
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 8px 24px rgba(6, 190, 182, 0.2);
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        padding: 1.2rem 0.5rem;
+        max-width: 98vw;
+      }
+      input, button {
+        font-size: 0.98rem;
+        padding: 0.65rem 0.7rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -136,7 +139,6 @@ button:hover {
         <input type="text" placeholder="Group Code" id="register-group" required>
         <button type="submit">Register</button>
       </form>
-
     </div>
   </div>
   <script src="index.js"></script>
