@@ -15,7 +15,7 @@ async function updateStatus() {
   const user = JSON.parse(localStorage.getItem('user'));
   const status = document.getElementById('status').value;
 
-  const res = await fetch(`http://localhost:8080/status/${user.id}`, {
+  const res = await fetch(`https://hometown-tracker-back.onrender.com/status/${user.id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ status })
@@ -33,7 +33,7 @@ async function updateStatus() {
 async function loadSummary() {
   const user = JSON.parse(localStorage.getItem('user'));
 
-  const res = await fetch('http://localhost:8080/users');
+  const res = await fetch('https://hometown-tracker-back.onrender.com/users');
   const users = await res.json();
 
   // Filter users by same group
@@ -49,7 +49,7 @@ async function loadSummary() {
 
 async function loadUsers() {
   const user = JSON.parse(localStorage.getItem('user'));
-  const res = await fetch('http://localhost:8080/users');
+  const res = await fetch('https://hometown-tracker-back.onrender.com/users');
   const users = await res.json();
 
   // Filter only users in the same group
